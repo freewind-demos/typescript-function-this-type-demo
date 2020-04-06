@@ -11,6 +11,6 @@
     "allowSyntheticDefaultImports": true
   },
   "files": [
-    "hello.ts"
+    "user.ts"
   ]
 }

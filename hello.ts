@@ -1,11 +1,21 @@
-type HelloType = {
-  name?: string
+type Hello = {
+  name: string,
+  hello: (this: Hello) => void;
 }
 
-function hello(this: HelloType, name: string): void {
-  this.name = name;
-  console.log(`Hello, ${this.name}!`);
+const user: Hello = {
+  name: 'typescript',
+  hello: function (this: Hello) {
+    console.log(`Hello, ${this.name}!`);
+  }
 }
 
-// FIXME how to call it?
-hello('typescript');
+user.hello()
+
+// FIXME can't do this to a function
+// const fn = function (this: any, message: string) {
+//   this.message = message;
+// };
+// fn('test')
+// console.log((fn as any).message);
+
